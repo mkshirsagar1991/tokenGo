@@ -1,0 +1,22 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "01a114b7-67bf-77a3-8397-24ae0a6ae8e5",
+        "provider_id": "01a114b7-6790-7aa1-8fd9-cd9d0960563d",
+        "name": "ABC Salon — Koregaon Park",
+        "address_line1": "12 North Main Road",
+        "address_line2": null,
+        "city": "Pune",
+        "state": "Maharashtra",
+        "postal_code": "411001",
+        "country": "IN",
+        "latitude": 18.5362,
+        "longitude": 73.8938,
+        "timezone": "Asia/Kolkata",
+        "status": "ACTIVE"
+      }
+    ]
+  }
+}

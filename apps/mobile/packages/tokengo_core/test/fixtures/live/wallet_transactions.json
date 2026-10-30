@@ -1,0 +1,61 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "01a11514-69a8-777a-90b8-2e7f1f61bf26",
+        "type": "HOLD_CREATE",
+        "label": "Reserved for a booking",
+        "account": "HELD",
+        "direction": "CREDIT",
+        "amount": {
+          "amount_minor": 30000,
+          "currency": "INR"
+        },
+        "balance_after": {
+          "amount_minor": 30000,
+          "currency": "INR"
+        },
+        "booking_id": "01a11514-6923-7ff3-9927-7c708a79371c",
+        "posted_at": "2026-10-07T06:37:01.725Z"
+      },
+      {
+        "id": "01a11514-69a8-7779-a390-fa3016e715fb",
+        "type": "HOLD_CREATE",
+        "label": "Reserved for a booking",
+        "account": "AVAILABLE",
+        "direction": "DEBIT",
+        "amount": {
+          "amount_minor": 30000,
+          "currency": "INR"
+        },
+        "balance_after": {
+          "amount_minor": 170000,
+          "currency": "INR"
+        },
+        "booking_id": "01a11514-6923-7ff3-9927-7c708a79371c",
+        "posted_at": "2026-10-07T06:37:01.725Z"
+      },
+      {
+        "id": "01a114b7-6f3c-77d4-9387-f59440e4d6aa",
+        "type": "DEV_TEST_CREDIT",
+        "label": "Test funds (development only)",
+        "account": "AVAILABLE",
+        "direction": "CREDIT",
+        "amount": {
+          "amount_minor": 200000,
+          "currency": "INR"
+        },
+        "balance_after": {
+          "amount_minor": 200000,
+          "currency": "INR"
+        },
+        "booking_id": null,
+        "posted_at": "2026-10-07T04:55:28.311Z"
+      }
+    ],
+    "meta": {
+      "next_cursor": null
+    }
+  }
+}

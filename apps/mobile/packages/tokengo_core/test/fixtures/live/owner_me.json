@@ -1,0 +1,28 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "id": "01a114b7-675d-7b44-90cb-907687cc8352",
+      "phone_masked": "+91 ••••• ••011",
+      "permissions": [
+        "appointment:cancel",
+        "appointment:create",
+        "appointment:read",
+        "appointment:respond",
+        "appointment:run",
+        "earnings:read",
+        "location:manage",
+        "payout_account:manage",
+        "provider:register",
+        "provider:update",
+        "schedule:manage",
+        "schedule:read",
+        "service:manage",
+        "service:read",
+        "staff:manage",
+        "staff:read",
+        "wallet:topup"
+      ]
+    }
+  }
+}

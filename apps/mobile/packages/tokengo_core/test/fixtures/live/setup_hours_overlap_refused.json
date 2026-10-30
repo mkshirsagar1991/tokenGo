@@ -1,0 +1,18 @@
+{
+  "status": 422,
+  "body": {
+    "type": "urn:tokengo:problem:validation_failed",
+    "title": "ValidationFailedError",
+    "status": 422,
+    "code": "VALIDATION_FAILED",
+    "detail": "Overlapping windows",
+    "request_id": "0e4f8d95-74c3-4edc-bcc1-1bbb01c8a619",
+    "errors": {
+      "fields": {
+        "working": [
+          "windows overlap on weekday 1"
+        ]
+      }
+    }
+  }
+}

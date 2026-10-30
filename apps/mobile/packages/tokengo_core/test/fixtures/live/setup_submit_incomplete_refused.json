@@ -1,0 +1,16 @@
+{
+  "status": 409,
+  "body": {
+    "type": "urn:tokengo:problem:provider_incomplete",
+    "title": "ConflictError",
+    "status": 409,
+    "code": "PROVIDER_INCOMPLETE",
+    "detail": "Add at least one location before submitting for verification",
+    "request_id": "48e70a37-8797-4295-9f8f-6bdd73cf862f",
+    "errors": {
+      "missing": [
+        "location"
+      ]
+    }
+  }
+}

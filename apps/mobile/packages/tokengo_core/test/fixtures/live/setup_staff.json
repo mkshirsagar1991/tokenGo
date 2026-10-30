@@ -1,0 +1,37 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "01a114b7-68b7-7995-a79b-5b8cc7e3127a",
+        "provider_id": "01a114b7-6790-7aa1-8fd9-cd9d0960563d",
+        "location_id": "01a114b7-67bf-77a3-8397-24ae0a6ae8e5",
+        "display_name": "Riya",
+        "staff_role": "STAFF",
+        "status": "ACTIVE",
+        "has_login": false,
+        "resource_id": "01a114b7-68b4-71ce-9ab5-163f81b48b27"
+      },
+      {
+        "id": "01a114b7-6903-7cc9-a32e-ec82a6acf5fe",
+        "provider_id": "01a114b7-6790-7aa1-8fd9-cd9d0960563d",
+        "location_id": "01a114b7-67bf-77a3-8397-24ae0a6ae8e5",
+        "display_name": "Amit",
+        "staff_role": "STAFF",
+        "status": "ACTIVE",
+        "has_login": false,
+        "resource_id": "01a114b7-6901-7b4e-be23-3c24e36c103f"
+      },
+      {
+        "id": "01a114b7-695f-7e93-9560-bebce2ad029b",
+        "provider_id": "01a114b7-6790-7aa1-8fd9-cd9d0960563d",
+        "location_id": "01a114b7-67bf-77a3-8397-24ae0a6ae8e5",
+        "display_name": "Kabir",
+        "staff_role": "STAFF",
+        "status": "ACTIVE",
+        "has_login": false,
+        "resource_id": "01a114b7-695d-7685-b319-ca686440534c"
+      }
+    ]
+  }
+}

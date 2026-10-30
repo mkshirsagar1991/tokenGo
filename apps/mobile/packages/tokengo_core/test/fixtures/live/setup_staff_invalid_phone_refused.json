@@ -1,0 +1,18 @@
+{
+  "status": 422,
+  "body": {
+    "type": "urn:tokengo:problem:validation_failed",
+    "title": "ValidationFailedError",
+    "status": 422,
+    "code": "VALIDATION_FAILED",
+    "detail": "Invalid phone number",
+    "request_id": "7c035c0e-2559-4684-a986-0923710948ae",
+    "errors": {
+      "fields": {
+        "phone": [
+          "must be a valid mobile number"
+        ]
+      }
+    }
+  }
+}

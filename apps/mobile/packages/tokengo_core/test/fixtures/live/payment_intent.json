@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "id": "01a11522-0848-741b-b1d4-c67eafdd14af",
+      "status": "PENDING",
+      "purpose": "WALLET_TOPUP",
+      "amount": {
+        "amount_minor": 10000,
+        "currency": "INR"
+      },
+      "provider": "razorpay",
+      "checkout": {
+        "provider": "razorpay",
+        "key_id": "rzp_test_FIXTURE",
+        "order_id": "order_TkvSeThc0jOgyB",
+        "test_mode": true
+      },
+      "expires_at": "2026-10-07T07:21:54.312Z",
+      "succeeded_at": null,
+      "created_at": "2026-10-07T06:51:54.312Z"
+    }
+  }
+}

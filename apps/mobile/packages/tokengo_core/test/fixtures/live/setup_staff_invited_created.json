@@ -1,0 +1,15 @@
+{
+  "status": 201,
+  "body": {
+    "data": {
+      "id": "01a11551-7661-7af4-b045-337a3bb89711",
+      "provider_id": "01a11551-74f2-7f67-8d6c-320744186e68",
+      "location_id": "01a11551-7543-7fd7-8519-03f9d441751f",
+      "display_name": "Fixture Invitee",
+      "staff_role": "MANAGER",
+      "status": "INVITED",
+      "has_login": false,
+      "resource_id": "01a11551-765f-7304-b4ac-4f6eac448542"
+    }
+  }
+}

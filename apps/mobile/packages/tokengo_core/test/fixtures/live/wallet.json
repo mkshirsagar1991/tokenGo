@@ -1,0 +1,15 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "available": {
+        "amount_minor": 170000,
+        "currency": "INR"
+      },
+      "held": {
+        "amount_minor": 30000,
+        "currency": "INR"
+      }
+    }
+  }
+}

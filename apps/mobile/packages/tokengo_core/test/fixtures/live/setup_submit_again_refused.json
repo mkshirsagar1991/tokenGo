@@ -1,0 +1,15 @@
+{
+  "status": 409,
+  "body": {
+    "type": "urn:tokengo:problem:invalid_state_transition",
+    "title": "ConflictError",
+    "status": 409,
+    "code": "INVALID_STATE_TRANSITION",
+    "detail": "Cannot submit a provider that is SUBMITTED",
+    "request_id": "b9568184-f782-41c5-9ee8-b02d7fdd75e4",
+    "errors": {
+      "from": "SUBMITTED",
+      "action": "SUBMIT"
+    }
+  }
+}

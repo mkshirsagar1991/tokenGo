@@ -1,0 +1,31 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "00000000-0000-7000-8000-000000000201",
+        "code": "haircut",
+        "name": "Haircut",
+        "description": null
+      },
+      {
+        "id": "00000000-0000-7000-8000-000000000202",
+        "code": "shaving",
+        "name": "Shaving",
+        "description": null
+      },
+      {
+        "id": "00000000-0000-7000-8000-000000000203",
+        "code": "hair_coloring",
+        "name": "Hair coloring",
+        "description": null
+      },
+      {
+        "id": "00000000-0000-7000-8000-000000000204",
+        "code": "facial",
+        "name": "Facial",
+        "description": null
+      }
+    ]
+  }
+}

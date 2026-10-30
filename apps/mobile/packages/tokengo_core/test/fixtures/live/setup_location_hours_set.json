@@ -1,0 +1,71 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "working": [
+        {
+          "weekday": 1,
+          "start": "09:00",
+          "end": "19:00"
+        },
+        {
+          "weekday": 2,
+          "start": "09:00",
+          "end": "19:00"
+        },
+        {
+          "weekday": 3,
+          "start": "09:00",
+          "end": "19:00"
+        },
+        {
+          "weekday": 4,
+          "start": "09:00",
+          "end": "19:00"
+        },
+        {
+          "weekday": 5,
+          "start": "09:00",
+          "end": "19:00"
+        },
+        {
+          "weekday": 6,
+          "start": "09:00",
+          "end": "19:00"
+        }
+      ],
+      "breaks": [
+        {
+          "weekday": 1,
+          "start": "13:00",
+          "end": "14:00"
+        },
+        {
+          "weekday": 2,
+          "start": "13:00",
+          "end": "14:00"
+        },
+        {
+          "weekday": 3,
+          "start": "13:00",
+          "end": "14:00"
+        },
+        {
+          "weekday": 4,
+          "start": "13:00",
+          "end": "14:00"
+        },
+        {
+          "weekday": 5,
+          "start": "13:00",
+          "end": "14:00"
+        },
+        {
+          "weekday": 6,
+          "start": "13:00",
+          "end": "14:00"
+        }
+      ]
+    }
+  }
+}

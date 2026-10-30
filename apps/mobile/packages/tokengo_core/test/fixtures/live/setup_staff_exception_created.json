@@ -1,0 +1,14 @@
+{
+  "status": 201,
+  "body": {
+    "data": {
+      "id": "01a11551-7703-7867-a3e9-9f9cd688b7da",
+      "kind": "OPEN",
+      "start_date": "2026-10-09",
+      "end_date": "2026-10-09",
+      "start": "10:00",
+      "end": "14:00",
+      "reason": null
+    }
+  }
+}

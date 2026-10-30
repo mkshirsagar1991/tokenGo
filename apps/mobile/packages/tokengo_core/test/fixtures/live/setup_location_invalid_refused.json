@@ -1,0 +1,24 @@
+{
+  "status": 422,
+  "body": {
+    "type": "urn:tokengo:problem:validation_failed",
+    "title": "ValidationFailedError",
+    "status": 422,
+    "code": "VALIDATION_FAILED",
+    "detail": "Request validation failed",
+    "request_id": "6d57084b-c55b-4ffa-b366-06245771ed3b",
+    "errors": {
+      "fields": {
+        "name": [
+          "name must be longer than or equal to 1 characters"
+        ],
+        "postal_code": [
+          "postal_code is invalid"
+        ],
+        "latitude": [
+          "latitude must not be greater than 90"
+        ]
+      }
+    }
+  }
+}

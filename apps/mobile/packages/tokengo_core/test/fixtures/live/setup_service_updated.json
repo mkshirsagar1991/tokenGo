@@ -1,0 +1,21 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "id": "01a11551-75b0-771e-847a-ce25a0435d2c",
+      "provider_id": "01a11551-74f2-7f67-8d6c-320744186e68",
+      "service_type_id": "00000000-0000-7000-8000-000000000201",
+      "name": "Fixture haircut",
+      "description": null,
+      "price": {
+        "amount_minor": 27500,
+        "currency": "INR"
+      },
+      "duration_min": 30,
+      "buffer_min": 5,
+      "is_active": true,
+      "attributes": {},
+      "version": 2
+    }
+  }
+}

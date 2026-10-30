@@ -1,0 +1,15 @@
+{
+  "status": 201,
+  "body": {
+    "data": {
+      "id": "01a11551-7646-7aa1-8b94-6ae0e644c9b4",
+      "provider_id": "01a11551-74f2-7f67-8d6c-320744186e68",
+      "location_id": "01a11551-7543-7fd7-8519-03f9d441751f",
+      "display_name": "Fixture Owner Stylist",
+      "staff_role": "STAFF",
+      "status": "ACTIVE",
+      "has_login": false,
+      "resource_id": "01a11551-7642-7512-9b2a-303d02918de9"
+    }
+  }
+}

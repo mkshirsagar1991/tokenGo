@@ -1,0 +1,12 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "staff_id": "01a11551-7646-7aa1-8b94-6ae0e644c9b4",
+      "restricted": true,
+      "service_ids": [
+        "01a11551-75b0-771e-847a-ce25a0435d2c"
+      ]
+    }
+  }
+}

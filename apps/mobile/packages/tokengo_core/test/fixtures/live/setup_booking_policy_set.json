@@ -1,0 +1,16 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "effective": {
+        "slot_granularity_min": 15,
+        "min_lead_time_min": 60,
+        "max_advance_days": 30,
+        "response_deadline_min": 120,
+        "check_in_window_min": 30,
+        "no_show_grace_min": 15,
+        "settlement_hold_hours": 24
+      }
+    }
+  }
+}

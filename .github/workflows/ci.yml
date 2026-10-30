@@ -1,0 +1,73 @@
+# NOTE: written in Phase 1 but NOT yet executed (no GitHub remote exists yet). Treat as unverified
+# until the first green run. Stages follow requirements §32; deploy stages are added in Phase 10.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_USER: tokengo
+          POSTGRES_PASSWORD: ci_only_throwaway
+          POSTGRES_DB: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U tokengo"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    env:
+      TEST_DATABASE_URL: postgres://tokengo:ci_only_throwaway@localhost:5432/postgres
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm --filter @tokengo/api lint
+      - name: Typecheck
+        run: pnpm --filter @tokengo/api typecheck
+      - name: Architecture boundaries (module dependency rules)
+        run: pnpm --filter @tokengo/api depcheck
+      - name: Unit tests
+        run: pnpm --filter @tokengo/api test:unit
+      - name: Integration tests (real PostgreSQL + PostGIS)
+        run: pnpm --filter @tokengo/api test:int
+      - name: Build
+        run: pnpm --filter @tokengo/api build
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Dependency audit (production dependencies)
+        run: pnpm audit --prod --audit-level high

@@ -1,0 +1,18 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "01a11551-74f2-7f67-8d6c-320744186e68",
+        "display_name": "Fixture Salon (delete me)",
+        "description": "Throw-away business used to capture API fixtures.",
+        "status": "SUBMITTED",
+        "submitted_at": "2026-10-07T07:43:42.955Z",
+        "decided_at": null,
+        "decision_reason": null,
+        "version": 2,
+        "created_at": "2026-10-07T07:43:42.314Z"
+      }
+    ]
+  }
+}

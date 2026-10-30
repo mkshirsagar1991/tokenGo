@@ -1,0 +1,92 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "location_id": "01a114b7-67bf-77a3-8397-24ae0a6ae8e5",
+        "provider_id": "01a114b7-6790-7aa1-8fd9-cd9d0960563d",
+        "name": "ABC Salon",
+        "location_name": "ABC Salon — Koregaon Park",
+        "address": {
+          "line1": "12 North Main Road",
+          "line2": null,
+          "city": "Pune",
+          "state": "Maharashtra",
+          "postal_code": "411001"
+        },
+        "latitude": 18.5362,
+        "longitude": 73.8938,
+        "distance_m": 4290,
+        "timezone": "Asia/Kolkata",
+        "rating": {
+          "average": null,
+          "count": 0
+        },
+        "price_from": {
+          "amount_minor": 10000,
+          "currency": "INR"
+        },
+        "matching_services": 4,
+        "open_now": true
+      },
+      {
+        "location_id": "01a114b7-6a79-7bcb-bbe0-fad963ce9156",
+        "provider_id": "01a114b7-6a50-784c-acbe-a69f0b21a0e9",
+        "name": "XYZ Salon",
+        "location_name": "XYZ Salon — Kothrud",
+        "address": {
+          "line1": "4 Paud Road",
+          "line2": null,
+          "city": "Pune",
+          "state": "Maharashtra",
+          "postal_code": "411038"
+        },
+        "latitude": 18.5074,
+        "longitude": 73.8077,
+        "distance_m": 5370,
+        "timezone": "Asia/Kolkata",
+        "rating": {
+          "average": null,
+          "count": 0
+        },
+        "price_from": {
+          "amount_minor": 10000,
+          "currency": "INR"
+        },
+        "matching_services": 4,
+        "open_now": true
+      },
+      {
+        "location_id": "01a114b7-6c2e-7368-b367-4fc668e534b2",
+        "provider_id": "01a114b7-6c11-7a1a-a41d-6d29a826def4",
+        "name": "Style Studio",
+        "location_name": "Style Studio — Baner",
+        "address": {
+          "line1": "88 Baner Road",
+          "line2": null,
+          "city": "Pune",
+          "state": "Maharashtra",
+          "postal_code": "411045"
+        },
+        "latitude": 18.559,
+        "longitude": 73.7868,
+        "distance_m": 8527,
+        "timezone": "Asia/Kolkata",
+        "rating": {
+          "average": null,
+          "count": 0
+        },
+        "price_from": {
+          "amount_minor": 10000,
+          "currency": "INR"
+        },
+        "matching_services": 4,
+        "open_now": true
+      }
+    ],
+    "meta": {
+      "count": 3,
+      "next_cursor": null
+    }
+  }
+}

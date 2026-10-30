@@ -1,0 +1,71 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "01a114b7-682e-7a20-a5bc-98c0f24e64b0",
+        "provider_id": "01a114b7-6790-7aa1-8fd9-cd9d0960563d",
+        "service_type_id": "00000000-0000-7000-8000-000000000201",
+        "name": "Haircut",
+        "description": null,
+        "price": {
+          "amount_minor": 20000,
+          "currency": "INR"
+        },
+        "duration_min": 30,
+        "buffer_min": 0,
+        "is_active": true,
+        "attributes": {},
+        "version": 1
+      },
+      {
+        "id": "01a114b7-6851-76e5-af06-4e951ca22b88",
+        "provider_id": "01a114b7-6790-7aa1-8fd9-cd9d0960563d",
+        "service_type_id": "00000000-0000-7000-8000-000000000202",
+        "name": "Shaving",
+        "description": null,
+        "price": {
+          "amount_minor": 10000,
+          "currency": "INR"
+        },
+        "duration_min": 20,
+        "buffer_min": 5,
+        "is_active": true,
+        "attributes": {},
+        "version": 1
+      },
+      {
+        "id": "01a114b7-6876-78f6-bc1b-35193629b433",
+        "provider_id": "01a114b7-6790-7aa1-8fd9-cd9d0960563d",
+        "service_type_id": "00000000-0000-7000-8000-000000000203",
+        "name": "Hair Coloring",
+        "description": null,
+        "price": {
+          "amount_minor": 50000,
+          "currency": "INR"
+        },
+        "duration_min": 60,
+        "buffer_min": 10,
+        "is_active": true,
+        "attributes": {},
+        "version": 1
+      },
+      {
+        "id": "01a114b7-6896-79a8-ad72-082541d7f426",
+        "provider_id": "01a114b7-6790-7aa1-8fd9-cd9d0960563d",
+        "service_type_id": "00000000-0000-7000-8000-000000000204",
+        "name": "Facial",
+        "description": null,
+        "price": {
+          "amount_minor": 30000,
+          "currency": "INR"
+        },
+        "duration_min": 45,
+        "buffer_min": 5,
+        "is_active": true,
+        "attributes": {},
+        "version": 1
+      }
+    ]
+  }
+}

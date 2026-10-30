@@ -1,0 +1,14 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "id": "01a114b7-6e44-7851-975e-a2d67000084b",
+      "phone_masked": "+91 ••••• ••021",
+      "permissions": [
+        "appointment:create",
+        "provider:register",
+        "wallet:topup"
+      ]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+# Build context for apps/api/Dockerfile and apps/admin/Dockerfile is the repository ROOT.
+# Anything listed here is never sent to the Docker daemon, so it can never end up in an image layer.
+
+# --- secrets / local environment: NEVER in an image ---------------------------------------------------------------
+**/.env
+**/.env.*
+!**/.env.example
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*.tfstate
+**/*.tfstate.*
+**/*.tfvars
+!**/*.tfvars.example
+docker/.env.stack
+
+# --- VCS / CI / editor ---------------------------------------------------------------------------------------------
+.git
+.github
+.gitignore
+.editorconfig
+.vscode
+.idea
+
+# --- dependencies and build output are produced INSIDE the image, never copied from the host -------------------------
+**/node_modules
+**/dist
+**/build
+**/.next
+**/coverage
+**/*.tsbuildinfo
+**/.turbo
+
+# --- not needed to build the backend or the admin web app ----------------------------------------------------------
+apps/mobile
+infra
+tools
+docs
+requiremnts.md
+README.md
+docker/*.yml
+**/*.log
+**/.DS_Store
+**/Thumbs.db

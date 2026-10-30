@@ -1,0 +1,62 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "01a11514-6923-7ff3-9927-7c708a79371c",
+        "reference": "TG-VMWVS419",
+        "status": "CONFIRMED",
+        "funds_status": "HELD",
+        "settlement_status": "NOT_DUE",
+        "customer_id": "01a114b7-6e44-7851-975e-a2d67000084b",
+        "provider_id": "01a114b7-6790-7aa1-8fd9-cd9d0960563d",
+        "location_id": "01a114b7-67bf-77a3-8397-24ae0a6ae8e5",
+        "location_name": "ABC Salon — Koregaon Park",
+        "staff_resource_id": "01a114b7-68b4-71ce-9ab5-163f81b48b27",
+        "service": {
+          "id": "01a114b7-6896-79a8-ad72-082541d7f426",
+          "name": "Facial",
+          "duration_min": 45,
+          "buffer_min": 5,
+          "version": 1
+        },
+        "price": {
+          "amount_minor": 30000,
+          "currency": "INR"
+        },
+        "schedule": {
+          "start_at": "2026-10-08T04:30:00.000Z",
+          "end_at": "2026-10-08T05:15:00.000Z",
+          "local_start": "2026-10-08T10:00",
+          "timezone": "Asia/Kolkata"
+        },
+        "response_deadline_at": "2026-10-07T07:07:01.603Z",
+        "timeline": {
+          "requested_at": "2026-10-07T06:37:01.603Z",
+          "confirmed_at": "2026-10-07T06:39:05.891Z",
+          "arrived_at": null,
+          "started_at": null,
+          "completed_at": null,
+          "closed_at": null
+        },
+        "settle_after": null,
+        "status_reason": null,
+        "note": null,
+        "cancellation": {
+          "policy": "Platform default",
+          "refund_if_cancelled_now": {
+            "bps": 5000,
+            "amount": {
+              "amount_minor": 15000,
+              "currency": "INR"
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "next_cursor": null,
+      "as_of": "2026-10-07T07:02:13.565Z"
+    }
+  }
+}

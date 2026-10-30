@@ -1,0 +1,15 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "working": [
+        {
+          "weekday": 1,
+          "start": "10:00",
+          "end": "17:00"
+        }
+      ],
+      "breaks": []
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "00000000-0000-7000-8000-000000000101",
+        "code": "salon",
+        "name": "Salon",
+        "description": "Hair, beauty and grooming services",
+        "booking_flow_type": "APPOINTMENT_SLOT"
+      }
+    ]
+  }
+}

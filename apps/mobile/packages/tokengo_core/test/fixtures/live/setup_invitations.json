@@ -1,0 +1,23 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "01a11551-7661-7af4-b045-337a3bb89711",
+        "provider_name": "Fixture Salon (delete me)",
+        "location_name": "Fixture Salon - Baner",
+        "staff_role": "MANAGER",
+        "invited_as": "Fixture Invitee",
+        "invited_at": "2026-10-07T07:43:42.680Z"
+      },
+      {
+        "id": "01a11551-7676-7670-b851-873470fa6378",
+        "provider_name": "Fixture Salon (delete me)",
+        "location_name": "Fixture Salon - Baner",
+        "staff_role": "STAFF",
+        "invited_as": "Fixture Decliner",
+        "invited_at": "2026-10-07T07:43:42.701Z"
+      }
+    ]
+  }
+}

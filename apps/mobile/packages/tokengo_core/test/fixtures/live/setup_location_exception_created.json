@@ -1,0 +1,14 @@
+{
+  "status": 201,
+  "body": {
+    "data": {
+      "id": "01a11551-76eb-7733-95fa-73fe68f7c23e",
+      "kind": "CLOSED",
+      "start_date": "2026-10-09",
+      "end_date": "2026-10-09",
+      "start": null,
+      "end": null,
+      "reason": "Fixture holiday"
+    }
+  }
+}

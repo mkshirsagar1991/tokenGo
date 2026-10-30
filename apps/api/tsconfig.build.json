@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "types": ["node"],
+    // Production builds must be reproducible from scratch. With `incremental`, tsc trusts a .tsbuildinfo
+    // that lives OUTSIDE dist/ and skips emitting "unchanged" files after Nest wipes dist/ -> a broken,
+    // half-empty build. Incremental stays on for the editor/typecheck config only.
+    "incremental": false
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "test", "**/*.spec.ts"]
+}

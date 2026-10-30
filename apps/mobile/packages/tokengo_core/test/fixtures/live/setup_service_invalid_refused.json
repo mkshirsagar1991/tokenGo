@@ -1,0 +1,21 @@
+{
+  "status": 422,
+  "body": {
+    "type": "urn:tokengo:problem:validation_failed",
+    "title": "ValidationFailedError",
+    "status": 422,
+    "code": "VALIDATION_FAILED",
+    "detail": "Request validation failed",
+    "request_id": "0d5da67b-cd6e-46e1-97a3-cda3241fd3b7",
+    "errors": {
+      "fields": {
+        "price_minor": [
+          "price_minor must not be less than 0"
+        ],
+        "duration_min": [
+          "duration_min must not be less than 5"
+        ]
+      }
+    }
+  }
+}

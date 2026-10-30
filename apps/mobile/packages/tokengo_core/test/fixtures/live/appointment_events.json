@@ -1,0 +1,25 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "01a11514-6a0a-7df0-a3b2-5bd17340587e",
+        "type": "BookingRequested",
+        "from_status": null,
+        "to_status": "REQUESTED",
+        "actor_type": "CUSTOMER",
+        "reason_code": null,
+        "occurred_at": "2026-10-07T06:37:01.834Z"
+      },
+      {
+        "id": "01a11516-4eb0-77de-83b4-2b8d765af9aa",
+        "type": "BookingApproved",
+        "from_status": "REQUESTED",
+        "to_status": "CONFIRMED",
+        "actor_type": "PROVIDER",
+        "reason_code": null,
+        "occurred_at": "2026-10-07T06:39:05.904Z"
+      }
+    ]
+  }
+}

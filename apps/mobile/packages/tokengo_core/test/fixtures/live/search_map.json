@@ -1,0 +1,41 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "location_id": "01a114b7-67bf-77a3-8397-24ae0a6ae8e5",
+        "name": "ABC Salon",
+        "latitude": 18.5362,
+        "longitude": 73.8938,
+        "price_from": {
+          "amount_minor": 10000,
+          "currency": "INR"
+        }
+      },
+      {
+        "location_id": "01a114b7-6a79-7bcb-bbe0-fad963ce9156",
+        "name": "XYZ Salon",
+        "latitude": 18.5074,
+        "longitude": 73.8077,
+        "price_from": {
+          "amount_minor": 10000,
+          "currency": "INR"
+        }
+      },
+      {
+        "location_id": "01a114b7-6c2e-7368-b367-4fc668e534b2",
+        "name": "Style Studio",
+        "latitude": 18.559,
+        "longitude": 73.7868,
+        "price_from": {
+          "amount_minor": 10000,
+          "currency": "INR"
+        }
+      }
+    ],
+    "meta": {
+      "count": 3,
+      "truncated": false
+    }
+  }
+}

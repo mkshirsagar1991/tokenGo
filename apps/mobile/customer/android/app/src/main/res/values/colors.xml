@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The tint of the notification symbol in the status bar and the notification shade. -->
+    <color name="notification_accent">#1565FF</color>
+</resources>

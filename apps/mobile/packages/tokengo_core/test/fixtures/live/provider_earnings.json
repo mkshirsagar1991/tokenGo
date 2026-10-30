@@ -1,0 +1,32 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "waiting": {
+        "amount_minor": 0,
+        "currency": "INR"
+      },
+      "eligible": {
+        "amount_minor": 0,
+        "currency": "INR"
+      },
+      "in_payout": {
+        "amount_minor": 0,
+        "currency": "INR"
+      },
+      "paid_total": {
+        "amount_minor": 0,
+        "currency": "INR"
+      },
+      "next_eligible_at": null,
+      "payout": {
+        "blocker": "NO_VERIFIED_ACCOUNT",
+        "minimum": {
+          "amount_minor": 10000,
+          "currency": "INR"
+        },
+        "account": null
+      }
+    }
+  }
+}

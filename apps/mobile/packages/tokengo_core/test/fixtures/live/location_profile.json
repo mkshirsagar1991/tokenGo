@@ -1,0 +1,209 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "location_id": "01a114b7-67bf-77a3-8397-24ae0a6ae8e5",
+      "provider_id": "01a114b7-6790-7aa1-8fd9-cd9d0960563d",
+      "name": "ABC Salon",
+      "location_name": "ABC Salon — Koregaon Park",
+      "description": "Neighbourhood salon in Koregaon Park: cuts, colour and skincare.",
+      "address": {
+        "line1": "12 North Main Road",
+        "line2": null,
+        "city": "Pune",
+        "state": "Maharashtra",
+        "postal_code": "411001",
+        "country": "IN"
+      },
+      "latitude": 18.5362,
+      "longitude": 73.8938,
+      "timezone": "Asia/Kolkata",
+      "rating": {
+        "average": null,
+        "count": 0
+      },
+      "open_now": true,
+      "hours": [
+        {
+          "weekday": 1,
+          "windows": [
+            {
+              "start": "09:00",
+              "end": "20:00"
+            }
+          ],
+          "breaks": [
+            {
+              "start": "13:30",
+              "end": "14:15"
+            }
+          ]
+        },
+        {
+          "weekday": 2,
+          "windows": [
+            {
+              "start": "09:00",
+              "end": "20:00"
+            }
+          ],
+          "breaks": [
+            {
+              "start": "13:30",
+              "end": "14:15"
+            }
+          ]
+        },
+        {
+          "weekday": 3,
+          "windows": [
+            {
+              "start": "09:00",
+              "end": "20:00"
+            }
+          ],
+          "breaks": [
+            {
+              "start": "13:30",
+              "end": "14:15"
+            }
+          ]
+        },
+        {
+          "weekday": 4,
+          "windows": [
+            {
+              "start": "09:00",
+              "end": "20:00"
+            }
+          ],
+          "breaks": [
+            {
+              "start": "13:30",
+              "end": "14:15"
+            }
+          ]
+        },
+        {
+          "weekday": 5,
+          "windows": [
+            {
+              "start": "09:00",
+              "end": "20:00"
+            }
+          ],
+          "breaks": [
+            {
+              "start": "13:30",
+              "end": "14:15"
+            }
+          ]
+        },
+        {
+          "weekday": 6,
+          "windows": [
+            {
+              "start": "09:00",
+              "end": "20:00"
+            }
+          ],
+          "breaks": [
+            {
+              "start": "13:30",
+              "end": "14:15"
+            }
+          ]
+        },
+        {
+          "weekday": 7,
+          "windows": [],
+          "breaks": []
+        }
+      ],
+      "services": [
+        {
+          "id": "01a114b7-6896-79a8-ad72-082541d7f426",
+          "name": "Facial",
+          "description": null,
+          "category": "salon",
+          "service_type": "facial",
+          "price": {
+            "amount_minor": 30000,
+            "currency": "INR"
+          },
+          "duration_min": 45
+        },
+        {
+          "id": "01a114b7-6876-78f6-bc1b-35193629b433",
+          "name": "Hair Coloring",
+          "description": null,
+          "category": "salon",
+          "service_type": "hair_coloring",
+          "price": {
+            "amount_minor": 50000,
+            "currency": "INR"
+          },
+          "duration_min": 60
+        },
+        {
+          "id": "01a114b7-682e-7a20-a5bc-98c0f24e64b0",
+          "name": "Haircut",
+          "description": null,
+          "category": "salon",
+          "service_type": "haircut",
+          "price": {
+            "amount_minor": 20000,
+            "currency": "INR"
+          },
+          "duration_min": 30
+        },
+        {
+          "id": "01a114b7-6851-76e5-af06-4e951ca22b88",
+          "name": "Shaving",
+          "description": null,
+          "category": "salon",
+          "service_type": "shaving",
+          "price": {
+            "amount_minor": 10000,
+            "currency": "INR"
+          },
+          "duration_min": 20
+        }
+      ],
+      "staff": [
+        {
+          "id": "01a114b7-6901-7b4e-be23-3c24e36c103f",
+          "display_name": "Amit",
+          "service_ids": [
+            "01a114b7-682e-7a20-a5bc-98c0f24e64b0",
+            "01a114b7-6851-76e5-af06-4e951ca22b88"
+          ]
+        },
+        {
+          "id": "01a114b7-695d-7685-b319-ca686440534c",
+          "display_name": "Kabir",
+          "service_ids": null
+        },
+        {
+          "id": "01a114b7-68b4-71ce-9ab5-163f81b48b27",
+          "display_name": "Riya",
+          "service_ids": [
+            "01a114b7-682e-7a20-a5bc-98c0f24e64b0",
+            "01a114b7-6876-78f6-bc1b-35193629b433",
+            "01a114b7-6896-79a8-ad72-082541d7f426"
+          ]
+        }
+      ],
+      "booking_rules": {
+        "min_lead_time_min": 60,
+        "max_advance_days": 30,
+        "slot_granularity_min": 15
+      },
+      "cancellation_policy": null,
+      "directions": {
+        "google_maps": "https://www.google.com/maps/dir/?api=1&destination=18.5362,73.8938",
+        "apple_maps": "https://maps.apple.com/?daddr=18.5362,73.8938"
+      }
+    }
+  }
+}

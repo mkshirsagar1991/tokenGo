@@ -1,0 +1,20 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "id": "01a11551-7543-7fd7-8519-03f9d441751f",
+      "provider_id": "01a11551-74f2-7f67-8d6c-320744186e68",
+      "name": "Fixture Salon - Baner",
+      "address_line1": "12 Test Road",
+      "address_line2": "Near the fixture park",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "postal_code": "411045",
+      "country": "IN",
+      "latitude": 18.559,
+      "longitude": 73.7868,
+      "timezone": "Asia/Kolkata",
+      "status": "ACTIVE"
+    }
+  }
+}

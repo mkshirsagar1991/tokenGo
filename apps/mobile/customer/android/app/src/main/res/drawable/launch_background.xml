@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shown while the app starts: the app icon in the middle of a plain window (before Android 12; Android 12+ draws the launcher icon itself). -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/white" />
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/launch_icon" />
+    </item>
+</layer-list>

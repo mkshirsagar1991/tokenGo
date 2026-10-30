@@ -1,0 +1,48 @@
+# dependencies / build
+node_modules/
+dist/
+build/
+.next/
+coverage/
+*.tsbuildinfo
+
+# environment & secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Flutter / Dart (mobile workspace, added later)
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Uploaded files in local development (production uses S3)
+apps/api/.data/
+
+# Built Android packages: hand them out, do not commit them
+*.apk
+*.aab

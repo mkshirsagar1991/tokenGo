@@ -1,0 +1,9 @@
+name: tokengo_mobile_workspace
+description: "TokenGo mobile workspace: shared core + customer app + provider app."
+publish_to: none
+environment:
+  sdk: ^3.13.5
+workspace:
+  - packages/tokengo_core
+  - customer
+  - provider
