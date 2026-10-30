@@ -1,0 +1,146 @@
+# TokenGo backend on a single AWS (Graviton / ARM) host that ALSO runs other applications.
+# Lives on the server at /var/www/html/jtsdgt/tokengo/app/docker-compose.yml; the secrets file is ../secrets/.env.stack (0600).
+#
+# Isolation rules (the host is shared, so TokenGo must be a quiet neighbour):
+#   * its own compose project, network and volume: nothing is shared with, or visible to, any other container/app
+#   * the ONLY published port is ${TOKENGO_BIND}:${TOKENGO_API_PORT}. TOKENGO_BIND defaults to 127.0.0.1 (loopback: unreachable from
+#     outside); 0.0.0.0 serves the apps directly on that dedicated port (then the AWS security group is the gate).
+#     The database has no published port at all
+#   * hard memory ceilings so a runaway TokenGo process cannot starve the neighbours
+#
+#   docker compose --env-file ../secrets/.env.stack up -d
+name: tokengo
+
+x-api-env: &api-env
+  NODE_ENV: ${NODE_ENV}
+  PORT: "3000"
+  LOG_LEVEL: ${LOG_LEVEL:-info}
+  DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+  DB_POOL_MAX: "8"
+  JWT_PRIVATE_KEY_PEM: ${JWT_PRIVATE_KEY_PEM}
+  JWT_PUBLIC_KEY_PEM: ${JWT_PUBLIC_KEY_PEM}
+  PII_ENCRYPTION_KEY_B64: ${PII_ENCRYPTION_KEY_B64}
+  PII_HASH_KEY_B64: ${PII_HASH_KEY_B64}
+  PAYMENT_WEBHOOK_SECRET_B64: ${PAYMENT_WEBHOOK_SECRET_B64}
+  SMS_PROVIDER: ${SMS_PROVIDER}
+  PAYMENT_PROVIDER: ${PAYMENT_PROVIDER}
+  PAYOUT_PROVIDER: ${PAYOUT_PROVIDER}
+  PUSH_PROVIDER: ${PUSH_PROVIDER:-disabled}
+  REAL_MONEY_ENABLED: "false"
+  S3_BUCKET: ${S3_BUCKET:-}
+  STORAGE_DRIVER: ${STORAGE_DRIVER:-}
+  STORAGE_LOCAL_DIR: /data/uploads
+  # WhatsApp login codes: only read when SMS_PROVIDER=whatsapp (set them in the secrets file, never here).
+  WHATSAPP_ACCESS_TOKEN: ${WHATSAPP_ACCESS_TOKEN:-}
+  WHATSAPP_PHONE_NUMBER_ID: ${WHATSAPP_PHONE_NUMBER_ID:-}
+  WHATSAPP_TEMPLATE_NAME: ${WHATSAPP_TEMPLATE_NAME:-}
+  WHATSAPP_TEMPLATE_LANGUAGE: ${WHATSAPP_TEMPLATE_LANGUAGE:-en_IN}
+  WHATSAPP_TEMPLATE_HAS_CODE_BUTTON: ${WHATSAPP_TEMPLATE_HAS_CODE_BUTTON:-true}
+  WHATSAPP_API_VERSION: ${WHATSAPP_API_VERSION:-v21.0}
+  # Razorpay: TEST-mode keys only, and only outside NODE_ENV=production (the API refuses both a live key and razorpay in production).
+  RAZORPAY_KEY_ID: ${RAZORPAY_KEY_ID:-}
+  RAZORPAY_KEY_SECRET: ${RAZORPAY_KEY_SECRET:-}
+  RAZORPAY_WEBHOOK_SECRET: ${RAZORPAY_WEBHOOK_SECRET:-}
+  # Push (Firebase): only read when PUSH_PROVIDER=fcm.
+  FCM_PROJECT_ID: ${FCM_PROJECT_ID:-}
+  FCM_SERVICE_ACCOUNT_JSON_B64: ${FCM_SERVICE_ACCOUNT_JSON_B64:-}
+
+services:
+  postgres:
+    image: tokengo-postgis:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    # Small, fixed footprint for a shared 4 GB host.
+    command: ["postgres", "-c", "shared_buffers=128MB", "-c", "effective_cache_size=384MB", "-c", "max_connections=40", "-c", "work_mem=4MB", "-c", "maintenance_work_mem=64MB"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks: [internal]
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
+
+  # One-shot: applies forward-only SQL migrations, then exits. The API only starts after it succeeds.
+  migrate:
+    image: tokengo-migrate:${TOKENGO_TAG}
+    restart: "no"
+    depends_on:
+      postgres: { condition: service_healthy }
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+    networks: [internal]
+    mem_limit: 256m
+
+  api:
+    image: tokengo-api:${TOKENGO_TAG}
+    restart: unless-stopped
+    depends_on:
+      postgres: { condition: service_healthy }
+      migrate: { condition: service_completed_successfully }
+    volumes:
+      - ../uploads:/data/uploads
+    environment: *api-env
+    ports:
+      - "${TOKENGO_BIND:-127.0.0.1}:${TOKENGO_API_PORT:-3100}:3000"
+    networks: [internal]
+    mem_limit: 512m
+    read_only: true
+    tmpfs: ["/tmp"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+
+  worker:
+    image: tokengo-api:${TOKENGO_TAG}
+    restart: unless-stopped
+    command: ["node", "dist/main.worker.js"]
+    depends_on:
+      postgres: { condition: service_healthy }
+      migrate: { condition: service_completed_successfully }
+    volumes:
+      - ../uploads:/data/uploads
+    environment: *api-env
+    networks: [internal]
+    mem_limit: 384m
+    read_only: true
+    tmpfs: ["/tmp"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    healthcheck:
+      disable: true # no HTTP port; the image's HEALTHCHECK probes the API
+
+  # The admin portal (Next.js). Optional: started with `--profile admin`. Its server side calls the API over the internal network; the
+  # browser only talks to this port. COOKIE_SECURE=false because this test deployment is plain http (see docs/DEPLOY-AWS.md).
+  admin:
+    image: tokengo-admin:${TOKENGO_TAG}
+    profiles: [admin]
+    restart: unless-stopped
+    depends_on:
+      api: { condition: service_healthy }
+    environment:
+      API_BASE_URL: http://api:3000/api/v1
+      SESSION_SECRET: ${ADMIN_SESSION_SECRET}
+      COOKIE_SECURE: ${ADMIN_COOKIE_SECURE:-false}
+      ALLOWED_ORIGINS: ${ADMIN_ALLOWED_ORIGINS}
+      TRUST_PROXY: "false"
+    ports:
+      - "${TOKENGO_BIND:-127.0.0.1}:${TOKENGO_ADMIN_PORT:-3101}:3000"
+    networks: [internal]
+    mem_limit: 384m
+    read_only: true
+    tmpfs: ["/tmp", "/app/.next/cache"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+
+networks:
+  internal:
+    name: tokengo_internal
+
+volumes:
+  pgdata:
+    name: tokengo_pgdata

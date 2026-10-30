@@ -1,0 +1,11 @@
+# PostgreSQL 16 + PostGIS for hosts where the community `postgis/postgis` image has no build (it is linux/amd64 only, so it
+# cannot run on AWS Graviton / ARM servers). Built from the OFFICIAL postgres image plus Debian's own PostGIS packages (the
+# official image already has the PostgreSQL apt repository configured), so it is multi-arch and has no third-party base.
+#
+#   docker buildx build --platform linux/arm64 -f docker/Dockerfile.postgis -t tokengo-postgis:16 --load docker
+#
+# The API's migrations run `CREATE EXTENSION postgis` themselves, as the container's superuser role.
+FROM postgres:16-bookworm
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends postgresql-16-postgis-3 postgresql-16-postgis-3-scripts \
+ && rm -rf /var/lib/apt/lists/*

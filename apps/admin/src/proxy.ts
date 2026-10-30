@@ -14,7 +14,7 @@ import { getConfig } from '@/lib/server/config';
 export async function proxy(req: NextRequest) {
   const config = getConfig();
   const nonce = newNonce();
-  const csp = buildCsp(nonce, { dev: !config.isProduction });
+  const csp = buildCsp(nonce, { dev: !config.isProduction, upgradeInsecure: config.secureCookies });
   const { pathname, search } = req.nextUrl;
 
   const requestHeaders = new Headers(req.headers);
