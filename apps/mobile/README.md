@@ -89,3 +89,11 @@ The Android projects pin NDK 27.1.12297006 and disable Kotlin incremental compil
 ## Razorpay
 Top-up opens Razorpay Checkout for the order the **server** created, in **test mode** (test keys live only in `apps/api/.env`).
 The app never credits anything itself: it asks the server to verify with Razorpay. Live keys are refused by the API at startup.
+
+## iPhone (no Apple Developer account)
+iOS apps can only be built on macOS, so they are built in the cloud: `.github/workflows/ios-unsigned.yml` (GitHub Actions, run it by hand) produces an **unsigned**
+`.ipa` per app. Put the repository on GitHub, run the workflow, download the two artifacts, then install them with **Sideloadly** (or AltStore) on Windows/Mac using a
+**free Apple ID**. Limits of a free Apple ID: the app stops opening after **7 days** (re-install it), at most 3 apps at a time, and no push notifications.
+- `Info.plist` allows plain `http://` ONLY for the test server `52.25.145.254` (remove that exception when the API has HTTPS); the location (both apps) and camera (business app, QR scan) permission texts are set.
+- On iPhone the WhatsApp login-code autofill does not exist (Android only): tap **Copy code** in WhatsApp, then **Paste code** in the app.
+- Push (Firebase) is Android-only in the code, so it stays off on iPhone. Nothing here has been run on an iPhone yet.

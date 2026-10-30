@@ -1,0 +1,51 @@
+# Builds the two iPhone apps in the cloud (iOS can only be built on macOS) WITHOUT an Apple Developer account.
+# The result is an UNSIGNED .ipa per app. It cannot be installed as it is: Sideloadly / AltStore (Windows or Mac) signs it
+# with a free Apple ID when it is put on the phone. Apps signed that way stop opening after 7 days and must be re-installed.
+#
+# Run it: GitHub -> Actions -> "iOS unsigned build" -> Run workflow (optionally change the API address) -> download the artifacts.
+# Notes: macOS minutes cost 10x on private repositories; one build of both apps is roughly 30-40 macOS minutes.
+name: iOS unsigned build
+
+on:
+  workflow_dispatch:
+    inputs:
+      api_base_url:
+        description: API address compiled into the apps (http is allowed only for this test server, see Info.plist)
+        default: http://52.25.145.254:3100/api/v1
+        required: true
+
+jobs:
+  ios:
+    runs-on: macos-15
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [customer, provider]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.6
+          channel: stable
+          cache: true
+      - name: Dependencies (Dart pub workspace)
+        working-directory: apps/mobile
+        run: flutter pub get
+      - name: Build (no code signing)
+        working-directory: apps/mobile/${{ matrix.app }}
+        run: flutter build ios --release --no-codesign --dart-define=API_BASE_URL=${{ inputs.api_base_url }}
+      - name: Package the unsigned .ipa
+        working-directory: apps/mobile/${{ matrix.app }}
+        run: |
+          name=$([ "${{ matrix.app }}" = customer ] && echo TokenGo-customer || echo TokenGo-business)
+          rm -rf Payload && mkdir Payload
+          cp -R build/ios/iphoneos/Runner.app Payload/
+          zip -qry "$name-unsigned.ipa" Payload
+          ls -la "$name-unsigned.ipa"
+          echo "IPA=apps/mobile/${{ matrix.app }}/$name-unsigned.ipa" >> "$GITHUB_ENV"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.app }}-ios-unsigned-ipa
+          path: ${{ env.IPA }}
+          if-no-files-found: error
+          retention-days: 14
